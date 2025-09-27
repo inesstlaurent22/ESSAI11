@@ -1,138 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KIT IN - Crée ton entreprise (cas pratique) - Version Améliorée</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KIT IN - Crée ton entreprise (cas pratique)</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Barre de progression thématique -->
-    <div class="progress-container">
-        <div class="progress-compass">
-            <div class="progress-bar" id="progressBar"></div>
-            <div class="progress-text" id="progressText">Étape 1/3 : L'Aventure commence</div>
-        </div>
-    </div>
 
-    <!-- Navigation principale -->
-    <nav class="main-nav">
-        <a href="#" class="nav-item" data-sound="click">
-            <img src="https://via.placeholder.com/40x40/8B4513/FFFFFF?text=🏠" alt="Accueil" class="nav-icon">
-            <span>ACCUEIL</span>
-        </a>
-        <a href="#" class="nav-item" data-sound="click">
-            <img src="https://via.placeholder.com/40x40/4169E1/FFFFFF?text=📖" alt="Histoire" class="nav-icon">
-            <span>HISTOIRE</span>
-        </a>
-        <a href="#" class="nav-item" data-sound="click">
-            <img src="https://via.placeholder.com/40x40/DAA520/FFFFFF?text=🗺️" alt="Carte" class="nav-icon">
-            <span>CARTE</span>
-        </a>
-        <a href="#" class="nav-item" data-sound="click" id="backpackBtn">
-            <img src="https://via.placeholder.com/40x40/8B4513/FFFFFF?text=🎒" alt="Sac à dos" class="nav-icon">
-            <span>SAC À DOS</span>
-            <div class="badge-counter" id="badgeCounter">0</div>
-        </a>
-    </nav>
+  <div class="scene">
+    <img src="images/Fond/fondindex.png" alt="Image de fond de la page" class="background">
 
-    <!-- Contrôles audio -->
-    <div class="audio-controls">
-        <button id="musicToggle" class="audio-btn">🎵</button>
-        <button id="soundToggle" class="audio-btn">🔊</button>
-    </div>
-
-    <!-- Contenu principal -->
-    <main class="main-content">
-        <div class="hero-section">
-            <h1 class="main-title">Initier les enfants à l'entrepreunariat</h1>
-            
-            <!-- Coffre au trésor interactif -->
-            <div class="treasure-container">
-                <div class="treasure-chest" id="treasureChest">
-                    <div class="chest-lid"></div>
-                    <div class="chest-body"></div>
-                    <div class="chest-glow"></div>
-                    <div class="treasure-particles" id="particles"></div>
-                </div>
-                <p class="treasure-text">Clique sur le trésor pour entrer dans l'histoire</p>
-                <div class="dotted-path"></div>
-            </div>
-        </div>
-
-        <!-- Section Comment ça marche transformée en quêtes -->
-        <section class="quest-section">
-            <div class="parchment-background">
-                <h2 class="section-title">Comment ça marche</h2>
-                
-                <div class="quest-container">
-                    <div class="quest-item" data-quest="1">
-                        <div class="quest-icon">⚡</div>
-                        <h3>Quête 1 : L'Étincelle de l'Idée</h3>
-                        <p>Choisir une idée</p>
-                        <div class="quest-status" id="quest1Status">🔒</div>
-                    </div>
-                    
-                    <div class="quest-arrow">→</div>
-                    
-                    <div class="quest-item" data-quest="2">
-                        <div class="quest-icon">🗺️</div>
-                        <h3>Quête 2 : La Carte au Trésor du Projet</h3>
-                        <p>Structurer son projet</p>
-                        <div class="quest-status" id="quest2Status">🔒</div>
-                    </div>
-                    
-                    <div class="quest-arrow">→</div>
-                    
-                    <div class="quest-item" data-quest="3">
-                        <div class="quest-icon">🚀</div>
-                        <h3>Quête 3 : Le Grand Départ</h3>
-                        <p>Se lancer</p>
-                        <div class="quest-status" id="quest3Status">🔒</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Éléments cachés à découvrir -->
-        <div class="hidden-elements">
-            <div class="secret-coin" data-secret="coin1">💰</div>
-            <div class="secret-coin" data-secret="coin2">💰</div>
-            <div class="secret-gem" data-secret="gem1">💎</div>
-        </div>
-    </main>
-
-    <!-- Modal Sac à dos -->
-    <div class="modal" id="backpackModal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Ton Sac à Dos d'Aventurier</h2>
-            <div class="inventory">
-                <div class="inventory-section">
-                    <h3>Badges de Réussite</h3>
-                    <div class="badges-container" id="badgesContainer">
-                        <!-- Les badges seront ajoutés dynamiquement -->
-                    </div>
-                </div>
-                <div class="inventory-section">
-                    <h3>Trésors Collectés</h3>
-                    <div class="treasures-container" id="treasuresContainer">
-                        <div class="treasure-count">Pièces d'or: <span id="coinCount">0</span></div>
-                        <div class="treasure-count">Gemmes: <span id="gemCount">0</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Notifications -->
-    <div class="notification" id="notification"></div>
-
-    <!-- Audio elements -->
-    <audio id="backgroundMusic" loop>
-        <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav">
-    </audio>
-    
-    <script src="script.js"></script>
 </body>
 </html>
