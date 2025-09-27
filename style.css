@@ -10,6 +10,27 @@ body {
   overflow: hidden; /* Évite les barres de défilement */
 }
 
+/* Accueil */
+.Accueil {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Image de fond */
+.backgroundA {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintient les proportions de l'image */
+  z-index: 1;
+}
+
 /* Conteneur principal de la scène */
 .scene {
   position: relative;
