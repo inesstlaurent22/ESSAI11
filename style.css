@@ -27,7 +27,7 @@ html, body {
   z-index: 1; /* ✅ CORRIGÉ : Fond de base */
 }
 
-.boutontresor-button {
+.pirate1-button {
   position: absolute;
   top: 10%;
   left: 52.5%;
@@ -40,7 +40,7 @@ html, body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.boutontresor-button:hover {
+.pirate1-button:hover {
   transform: scale(1.05);
 }
 }
