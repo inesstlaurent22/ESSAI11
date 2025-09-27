@@ -34,102 +34,111 @@ body {
 /* Conteneur des boutons pirates */
 .buttons-container {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   z-index: 2;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 20px;
-  width: 400px;
-  height: 300px;
-  justify-items: center;
-  align-items: center;
 }
 
-/* Positionnement spécifique des boutons pour une disposition en croix */
-.pirate-button:nth-child(1) {
-  grid-column: 2;
-  grid-row: 1;
-}
-
-.pirate-button:nth-child(2) {
-  grid-column: 1;
-  grid-row: 2;
-}
-
-.pirate-button:nth-child(3) {
-  grid-column: 2;
-  grid-row: 2;
-}
-
-.pirate-button:nth-child(4) {
-  grid-column: 3;
-  grid-row: 2;
-}
-
-.pirate-button:nth-child(5) {
-  grid-column: 2;
-  grid-row: 3;
-}
-
-/* Ajustement de la grille pour 5 boutons */
-.buttons-container {
-  grid-template-rows: repeat(3, 1fr);
-}
-
-/* Styles des boutons pirates */
-.pirate-button {
+/* Positionnement spécifique de chaque bouton pirate */
+/* Pirate 1: x: 161 y: 514 w: 138 h: 255 */
+.pirate-link-1 {
+  position: absolute;
+  left: 161px;
+  top: 514px;
+  width: 138px;
+  height: 255px;
+  display: block;
+  text-decoration: none;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.pirate-button:hover {
+/* Pirate 2: x: 888 y: 696 w: 186 h: 178 */
+.pirate-link-2 {
+  position: absolute;
+  left: 888px;
+  top: 696px;
+  width: 186px;
+  height: 178px;
+  display: block;
+  text-decoration: none;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Pirate 3: x: 736 y: 363 w: 133 h: 217 */
+.pirate-link-3 {
+  position: absolute;
+  left: 736px;
+  top: 363px;
+  width: 133px;
+  height: 217px;
+  display: block;
+  text-decoration: none;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Pirate 4: x: 938 y: 112 w: 163 h: 235 */
+.pirate-link-4 {
+  position: absolute;
+  left: 938px;
+  top: 112px;
+  width: 163px;
+  height: 235px;
+  display: block;
+  text-decoration: none;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Pirate 5: x: 240 y: 200 w: 143 h: 187 */
+.pirate-link-5 {
+  position: absolute;
+  left: 240px;
+  top: 200px;
+  width: 143px;
+  height: 187px;
+  display: block;
+  text-decoration: none;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Styles des liens pirates */
+.pirate-link:hover {
   transform: scale(1.1);
   filter: brightness(1.2);
 }
 
-.pirate-button a {
-  display: block;
-  text-decoration: none;
-}
-
-.pirate-button img {
-  width: 80px;
-  height: 80px;
+.pirate-link img {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: box-shadow 0.3s ease;
 }
 
-.pirate-button img:hover {
+.pirate-link img:hover {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
 }
 
 /* Responsive design pour les écrans plus petits */
+@media (max-width: 1200px) {
+  .buttons-container {
+    transform: scale(0.8);
+    transform-origin: top left;
+  }
+}
+
 @media (max-width: 768px) {
   .buttons-container {
-    width: 300px;
-    height: 250px;
-    gap: 15px;
-  }
-  
-  .pirate-button img {
-    width: 60px;
-    height: 60px;
+    transform: scale(0.6);
+    transform-origin: top left;
   }
 }
 
 @media (max-width: 480px) {
   .buttons-container {
-    width: 250px;
-    height: 200px;
-    gap: 10px;
-  }
-  
-  .pirate-button img {
-    width: 50px;
-    height: 50px;
+    transform: scale(0.4);
+    transform-origin: top left;
   }
 }
