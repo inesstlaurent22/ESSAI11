@@ -12,7 +12,7 @@
     <img src="images/Fond1.PNG" alt="Image de fond de la page" class="backgroundA">
     
       <div class="tresor-button">
-        <a href="index.html" aria-label="Découvrir le KitIn">
+        <a href="menu.html" aria-label="Découvrir le KitIn">
           <img src="images/Tresor1.png" alt="Bouton Tresor">
         </a>
       </div>
@@ -28,12 +28,12 @@
     tresorButton.addEventListener('click', function(event) {
       event.preventDefault(); // Empêche la redirection par défaut du lien
       tresorButton.style.display = 'none'; // Cache le bouton
-      myVideo.style.display = 'block'; // Affiche la vidéo
-      myVideo.play(); // Lance la lecture de la vidéo
+      Video1.style.display = 'block'; // Affiche la vidéo
+      Video1.play(); // Lance la lecture de la vidéo
     });
 
-    myVideo.addEventListener('ended', function() {
-      window.location.href = 'index.html'; // Redirige vers la nouvelle page après la fin de la vidéo
+    Video1.addEventListener('ended', function() {
+      window.location.href = 'menu.html'; // Redirige vers la nouvelle page après la fin de la vidéo
     });
   </script>
 </body>
