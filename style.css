@@ -42,5 +42,70 @@ html, body {
 
 .pirate1-button:hover {
   transform: scale(1.05);
+
+.pirate2-button {
+  position: absolute;
+  top: 10%;
+  left: 52.5%;
+  width: 48%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  z-index: 20; /* ✅ CORRIGÉ : Bouton au-dessus du fond */
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pirate2-button:hover {
+  transform: scale(1.05);
+
+.pirate3-button {
+  position: absolute;
+  top: 10%;
+  left: 52.5%;
+  width: 48%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  z-index: 20; /* ✅ CORRIGÉ : Bouton au-dessus du fond */
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pirate3-button:hover {
+  transform: scale(1.05);
+
+.pirate4-button {
+  position: absolute;
+  top: 10%;
+  left: 52.5%;
+  width: 48%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  z-index: 20; /* ✅ CORRIGÉ : Bouton au-dessus du fond */
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pirate4-button:hover {
+  transform: scale(1.05);
+
+.pirate5-button {
+  position: absolute;
+  top: 10%;
+  left: 52.5%;
+  width: 48%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  z-index: 20; /* ✅ CORRIGÉ : Bouton au-dessus du fond */
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pirate5-button:hover {
+  transform: scale(1.05);
+
 }
 }
