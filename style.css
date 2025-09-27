@@ -45,7 +45,7 @@ body {
 /* Pirate 1: x: 161 y: 514 w: 138 h: 255 */
 .pirate1-button {
   position: absolute;
-  left: 161px;
+  left: 151px;
   top: 514px;
   width: 138px;
   height: 255px;
@@ -58,7 +58,7 @@ body {
 .pirate2-button {
   position: absolute;
   left: 888px;
-  top: 696px;
+  top: 686px;
   width: 186px;
   height: 178px;
   display: block;
@@ -81,7 +81,7 @@ body {
 /* Pirate 4: x: 938 y: 112 w: 163 h: 235 */
 .pirate4-button {
   position: absolute;
-  left: 938px;
+  left: 908px;
   top: 112px;
   width: 163px;
   height: 235px;
