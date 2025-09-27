@@ -1,111 +1,135 @@
+/* Reset et styles de base */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  background-color: #000; /* fond noir si l'image ne couvre pas tout */
-  overflow-x: hidden;
-  overflow-y: auto;
+body {
+  font-family: Arial, sans-serif;
+  overflow: hidden; /* Évite les barres de défilement */
+}
 
-  
-/* PAGE ACCUEIL */
+/* Conteneur principal de la scène */
 .scene {
   position: relative;
-  width: 100%;
-  height: auto;
-  z-index: 5; /* ✅ CORRIGÉ : Conteneur de base */
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Image de fond */
 .background {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  display: block;
-  z-index: 1; /* ✅ CORRIGÉ : Fond de base */
+  height: 100%;
+  object-fit: cover; /* Maintient les proportions de l'image */
+  z-index: 1;
 }
 
-.pirate1-button {
+/* Conteneur des boutons pirates */
+.buttons-container {
   position: absolute;
-  top: 10%;
-  left: 52.5%;
-  width: 48%;
-  height: auto;
-  object-fit: contain;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  width: 400px;
+  height: 300px;
+  justify-items: center;
+  align-items: center;
+}
+
+/* Positionnement spécifique des boutons pour une disposition en croix */
+.pirate-button:nth-child(1) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.pirate-button:nth-child(2) {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.pirate-button:nth-child(3) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.pirate-button:nth-child(4) {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.pirate-button:nth-child(5) {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+/* Ajustement de la grille pour 5 boutons */
+.buttons-container {
+  grid-template-rows: repeat(3, 1fr);
+}
+
+/* Styles des boutons pirates */
+.pirate-button {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.pirate-button:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+.pirate-button a {
   display: block;
-  z-index: 20; /* ✅ CORRIGÉ : Bouton au-dessus du fond */
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
 }
 
-.pirate1-button:hover {
-  transform: scale(1.05);
-
-.pirate2-button {
-  position: absolute;
-  top: 10%;
-  left: 52.5%;
-  width: 48%;
-  height: auto;
+.pirate-button img {
+  width: 80px;
+  height: 80px;
   object-fit: contain;
-  display: block;
-  z-index: 20; /* ✅ CORRIGÉ : Bouton au-dessus du fond */
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease;
 }
 
-.pirate2-button:hover {
-  transform: scale(1.05);
-
-.pirate3-button {
-  position: absolute;
-  top: 10%;
-  left: 52.5%;
-  width: 48%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  z-index: 20; /* ✅ CORRIGÉ : Bouton au-dessus du fond */
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.pirate-button img:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
 }
 
-.pirate3-button:hover {
-  transform: scale(1.05);
-
-.pirate4-button {
-  position: absolute;
-  top: 10%;
-  left: 52.5%;
-  width: 48%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  z-index: 20; /* ✅ CORRIGÉ : Bouton au-dessus du fond */
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Responsive design pour les écrans plus petits */
+@media (max-width: 768px) {
+  .buttons-container {
+    width: 300px;
+    height: 250px;
+    gap: 15px;
+  }
+  
+  .pirate-button img {
+    width: 60px;
+    height: 60px;
+  }
 }
 
-.pirate4-button:hover {
-  transform: scale(1.05);
-
-.pirate5-button {
-  position: absolute;
-  top: 10%;
-  left: 52.5%;
-  width: 48%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  z-index: 20; /* ✅ CORRIGÉ : Bouton au-dessus du fond */
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.pirate5-button:hover {
-  transform: scale(1.05);
-
-}
+@media (max-width: 480px) {
+  .buttons-container {
+    width: 250px;
+    height: 200px;
+    gap: 10px;
+  }
+  
+  .pirate-button img {
+    width: 50px;
+    height: 50px;
+  }
 }
