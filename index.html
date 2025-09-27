@@ -8,36 +8,15 @@
 </head>
 <body>
 
-/* PAGE ACCUEIL */
-.scene {
-  position: relative;
-  width: 100%;
-  height: auto;
-  z-index: 5; /* ✅ CORRIGÉ : Conteneur de base */
-}
+  <div class="scene">
+    <img src="images/Fond/Component13.png" alt="Image de fond de la page" class="background">
 
-.background {
-  width: 100%;
-  display: block;
-  z-index: 1; /* ✅ CORRIGÉ : Fond de base */
-}
-
-.pirate1-button {
-  position: absolute;
-  top: 10%;
-  left: 52.5%;
-  width: 48%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  z-index: 20; /* ✅ CORRIGÉ : Bouton au-dessus du fond */
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.pirate1-button:hover {
-  transform: scale(1.05);
-}
+    <div class="pirate1-button">
+      <a href="marketing.html" aria-label="Découvrir l'histoire">
+        <img src="images/Bouton/pirate1.png" alt="Bouton Pirate1" class="pirate1-button">
+      </a>
+    </div>
+  </div>
 
 </body>
 </html>
