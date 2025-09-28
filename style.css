@@ -73,10 +73,12 @@ body, html {
     object-fit: contain; /* Maintient les proportions de l'image */
     transition: transform 0.3s ease;
     display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .tresor-button img:hover {
     transform: scale(1.05);
+    box-shadow: 0 0 20px 8px rgba(255, 223, 0, 0.8); /* halo doré lumineux */
 }
 
 /* Styles pour la vidéo */
