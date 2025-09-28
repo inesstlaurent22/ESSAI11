@@ -19,7 +19,6 @@ body, html {
   left: 0;
   width: 100%;
   min-height: 100vh;
-  z-index: 1; /* ✅ CORRIGÉ : Fond de base */
 }
 
 .background1 {
@@ -28,7 +27,6 @@ body, html {
   object-fit: contain;
   object-position: top center;
   display: block;
-  z-index: 1; /* ✅ CORRIGÉ : Image de fond */
 }
 
 
@@ -67,11 +65,9 @@ body, html {
 }
 
 .tresor-button img {
-    /* Dimensions spécifiées : w: 295, h: 295 */
     width: 295px;
     height: 295px;
-    object-fit: contain; /* Maintient les proportions de l'image */
-    transition: transform 0.3s ease;
+    object-fit: contain;
     display: block;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -90,44 +86,23 @@ body, html {
     height: 100vh;
     z-index: 200;
     background-color: black;
-    object-fit: contain; /* Maintient les proportions de la vidéo */
+    object-fit: contain;
     display: none;
 }
 
-/* Styles pour le plein écran */
 #Video1:fullscreen {
     width: 100vw;
     height: 100vh;
     object-fit: contain;
 }
 
-#Video1:-webkit-full-screen {
-    width: 100vw;
-    height: 100vh;
-    object-fit: contain;
-}
-
-#Video1:-moz-full-screen {
-    width: 100vw;
-    height: 100vh;
-    object-fit: contain;
-}
-
-#Video1:-ms-fullscreen {
-    width: 100vw;
-    height: 100vh;
-    object-fit: contain;
-}
-
-/* Responsive Design pour les petits écrans */
+/* Responsive Design */
 @media (max-width: 1200px) {
     .tresor-button {
-        /* Ajustement proportionnel pour les écrans plus petits */
         left: 50%;
         top: 60%;
         transform: translate(-50%, -50%);
     }
-    
     .tresor-button img {
         width: 200px;
         height: 200px;
@@ -140,7 +115,6 @@ body, html {
         top: 70%;
         transform: translate(-50%, -50%);
     }
-    
     .tresor-button img {
         width: 150px;
         height: 150px;
