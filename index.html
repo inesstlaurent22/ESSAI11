@@ -4,36 +4,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KIT IN - Crée ton entreprise (cas pratique)</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style_corrige.css">
 </head>
 <body>
 
   <div class="Accueil">
     <img src="images/Fond1.png" alt="Image de fond de la page" class="backgroundA">
     
-      <div class="tresor-button">
-        <a href="menu.html" aria-label="Découvrir le KitIn">
-          <img src="images/Tresor1.png" alt="Bouton Tresor">
-        </a>
-      </div>
+    <div class="tresor-button">
+      <a href="menu.html" aria-label="Découvrir le KitIn">
+        <img src="images/Tresor1.png" alt="Bouton Tresor" onerror="this.style.border='3px solid red'; this.alt='Image manquante';">
+      </a>
+    </div>
 
     <video id="Video1" src="Video1.MOV" style="display:none; width: 100%; height: auto;" controls></video>
 
   </div>
 
   <script>
+    // Vérification que les éléments existent avant d'ajouter les événements
     const tresorButton = document.querySelector('.tresor-button a');
     const Video1 = document.getElementById('Video1');
 
-    tresorButton.addEventListener('click', function(event) {
-      event.preventDefault(); // Empêche la redirection par défaut du lien
-      tresorButton.style.display = 'none'; // Cache le bouton
-      Video1.style.display = 'block'; // Affiche la vidéo
-      Video1.play(); // Lance la lecture de la vidéo
-    });
+    if (tresorButton && Video1) {
+      tresorButton.addEventListener('click', function(event) {
+        event.preventDefault(); // Empêche la redirection par défaut du lien
+        tresorButton.style.display = 'none'; // Cache le bouton
+        Video1.style.display = 'block'; // Affiche la vidéo
+        Video1.play(); // Lance la lecture de la vidéo
+      });
 
-    Video1.addEventListener('ended', function() {
-      window.location.href = 'menu.html'; // Redirige vers la nouvelle page après la fin de la vidéo
+      Video1.addEventListener('ended', function() {
+        window.location.href = 'menu.html'; // Redirige vers la nouvelle page après la fin de la vidéo
+      });
+    } else {
+      console.error('Éléments manquants : bouton trésor ou vidéo');
+    }
+
+    // Debug : afficher la position du bouton dans la console
+    window.addEventListener('load', function() {
+      const button = document.querySelector('.tresor-button');
+      if (button) {
+        const rect = button.getBoundingClientRect();
+        console.log('Position du bouton trésor:', rect);
+      }
     });
   </script>
 </body>
