@@ -31,7 +31,7 @@
   </div>
 </div>
   
-<video id="Video1" src="video/Video1.MOV" controls></video>
+<video id="Video1" src="video/Video1.MOV"></video>
   
 <script>
   const tresorBtn = document.getElementById("tresorBtn");
@@ -47,22 +47,11 @@
     // afficher la vidéo en plein écran
     video.style.display = "block";
     video.play();
-
-    // on ajoute un état dans l'historique
-    history.pushState({ video: true }, null, "#video");
   });
 
-  // quand l’utilisateur clique sur "retour"
-  window.addEventListener("popstate", (event) => {
-    if (event.state && event.state.video) {
-      // on enlève l’état vidéo et recharge la page sans la vidéo
-      history.back();
-    } else {
-      // cacher la vidéo et revenir au contenu normal
-      video.pause();
-      video.style.display = "none";
-      pageContent.style.display = "block";
-    }
+  // quand la vidéo se termine → redirection
+  video.addEventListener("ended", () => {
+    window.location.href = "menu.html";
   });
 </script>
 
