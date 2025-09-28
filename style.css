@@ -55,7 +55,6 @@ body, html {
 
 .tresor-button {
     position: absolute;
-    /* Position selon les coordonnées spécifiées : x: 701, y: 541 */
     left: 701px;
     top: 541px;
     z-index: 100;
