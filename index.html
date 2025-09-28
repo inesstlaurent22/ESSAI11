@@ -16,6 +16,7 @@
       height: 100%;
       object-fit: cover; /* garde le bon cadrage */
       z-index: 9999;
+      pointer-events: none; /* empêche toute interaction (pause clic etc.) */
     }
   </style>
 </head>
@@ -31,7 +32,7 @@
   </div>
 </div>
   
-<video id="Video1" src="video/Video1.MOV"></video>
+<video id="Video1" src="video/Video1.MOV" playsinline></video>
   
 <script>
   const tresorBtn = document.getElementById("tresorBtn");
@@ -41,12 +42,21 @@
   tresorBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
+    // Vérifie si la vidéo a déjà été jouée
+    if (localStorage.getItem("videoPlayed")) {
+      window.location.href = "menu.html";
+      return;
+    }
+
     // cacher le contenu de la page
     pageContent.style.display = "none";
 
-    // afficher la vidéo en plein écran
+    // afficher et lancer la vidéo
     video.style.display = "block";
     video.play();
+
+    // marquer que la vidéo a été jouée une fois
+    localStorage.setItem("videoPlayed", "true");
   });
 
   // quand la vidéo se termine → redirection
