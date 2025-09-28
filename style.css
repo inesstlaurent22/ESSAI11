@@ -12,7 +12,27 @@ body, html {
     color: #333;
 }
 
-/* Styles pour la page d'accueil */
+/* PAGE 1 */
+.fond-page1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  z-index: 1; /* ✅ CORRIGÉ : Fond de base */
+}
+
+.background1 {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: top center;
+  display: block;
+  z-index: 1; /* ✅ CORRIGÉ : Image de fond */
+}
+
+
+/* PAGE 2 */
 .Accueil {
     position: relative;
     width: 100vw;
