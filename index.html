@@ -5,6 +5,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CLIQUE SUR LE TRESOR</title>
   <style>
+    /* Reset des marges et padding par défaut */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Style pour le body */
+    body {
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Container principal de la page */
+    .fond-page1 {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Image de fond */
+    .background1 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    /* Container du bouton trésor */
+    .tresor-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    /* Effet hover sur le bouton */
+    .tresor-button:hover {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    /* Image du bouton trésor */
+    .tresor-button img {
+      max-width: 200px;
+      height: auto;
+      display: block;
+    }
+
     /* Vidéo en plein écran */
     #Video1 {
       display: none;
@@ -17,6 +74,19 @@
       z-index: 9999;
       background: black;
     }
+
+    /* Responsive pour les petits écrans */
+    @media (max-width: 768px) {
+      .tresor-button img {
+        max-width: 150px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .tresor-button img {
+        max-width: 120px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -26,43 +96,93 @@
 
     <div class="tresor-button">
       <a href="menu.html" id="tresorBtn" aria-label="Trésor">
-        <img src="images/Tresor1.MOV" alt="Bouton Trésor">
+        <img src="images/Tresor1.png" alt="Bouton Trésor">
       </a>
     </div>
   </div>
 
   <!-- Vidéo -->
-  <video id="Video1" src="video/Video1.mp4" playsinline muted></video>
+  <video id="Video1" src="video/Video1.mp4" playsinline muted preload="metadata"></video>
   
   <!-- Script intégré -->
   <script>
-    const tresorBtn = document.getElementById("tresorBtn");
-    const video = document.getElementById("Video1");
-    const pageContent = document.getElementById("pageContent");
+    // Attendre que le DOM soit complètement chargé
+    document.addEventListener('DOMContentLoaded', function() {
+      const tresorBtn = document.getElementById("tresorBtn");
+      const video = document.getElementById("Video1");
+      const pageContent = document.getElementById("pageContent");
 
-    // Étape 1 : clic sur le bouton trésor → afficher et lancer la vidéo
-    tresorBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-
-      if (localStorage.getItem("videoPlayed")) {
-        window.location.href = "menu.html";
+      // Vérifier que tous les éléments existent
+      if (!tresorBtn || !video || !pageContent) {
+        console.error("Éléments manquants dans le DOM");
         return;
       }
 
-      pageContent.style.display = "none";
-      video.style.display = "block";
+      // Précharger la vidéo
+      video.load();
 
-      video.play().catch(err => {
-        console.error("Erreur lors de la lecture :", err);
+      // Étape 1 : clic sur le bouton trésor → afficher et lancer la vidéo
+      tresorBtn.addEventListener("click", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        console.log("Clic sur le bouton trésor détecté");
+
+        // Vérifier si la vidéo a déjà été jouée
+        if (localStorage.getItem("videoPlayed")) {
+          console.log("Vidéo déjà jouée, redirection vers menu.html");
+          window.location.href = "menu.html";
+          return;
+        }
+
+        // Masquer le contenu de la page
+        pageContent.style.display = "none";
+        
+        // Afficher la vidéo
+        video.style.display = "block";
+
+        console.log("Tentative de lecture de la vidéo");
+
+        // Lancer la vidéo avec gestion d'erreur améliorée
+        const playPromise = video.play();
+        
+        if (playPromise !== undefined) {
+          playPromise
+            .then(function() {
+              console.log("Vidéo lancée avec succès");
+              // Marquer la vidéo comme jouée
+              localStorage.setItem("videoPlayed", "true");
+            })
+            .catch(function(error) {
+              console.error("Erreur lors de la lecture de la vidéo:", error);
+              
+              // En cas d'erreur, afficher un message et rediriger
+              alert("Impossible de lire la vidéo. Redirection vers le menu.");
+              window.location.href = "menu.html";
+            });
+        }
+      });
+
+      // Étape 2 : quand la vidéo se termine → redirection
+      video.addEventListener("ended", function() {
+        console.log("Vidéo terminée, redirection vers menu.html");
         window.location.href = "menu.html";
       });
 
-      localStorage.setItem("videoPlayed", "true");
-    });
+      // Gestion des erreurs de chargement de la vidéo
+      video.addEventListener("error", function(e) {
+        console.error("Erreur de chargement de la vidéo:", e);
+        alert("Erreur de chargement de la vidéo. Vérifiez le chemin du fichier.");
+      });
 
-    // Étape 2 : quand la vidéo se termine → redirection
-    video.addEventListener("ended", () => {
-      window.location.href = "menu.html";
+      // Événement pour déboguer le chargement de la vidéo
+      video.addEventListener("loadeddata", function() {
+        console.log("Données de la vidéo chargées");
+      });
+
+      video.addEventListener("canplay", function() {
+        console.log("La vidéo peut être lue");
+      });
     });
   </script>
 
