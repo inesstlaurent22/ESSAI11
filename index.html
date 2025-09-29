@@ -17,7 +17,7 @@
       object-fit: cover;
       z-index: 9999;
       background: black;
-      cursor: pointer; /* pour indiquer qu’on doit cliquer */
+      cursor: pointer; /* indique qu’on peut cliquer */
     }
 
     /* Loader */
@@ -32,6 +32,7 @@
       color: #ffd700;
       font-size: 2rem;
       font-family: Arial, sans-serif;
+      display: flex;
       justify-content: center;
       align-items: center;
       z-index: 10000;
@@ -43,25 +44,28 @@
       50% { opacity: 0.5; }
       100% { opacity: 1; }
     }
+  </style>
+</head>
+<body>
 
-<div class="fond-page1" id="pageContent">
-  <img src="images/Fond1.PNG" alt="Page1" class="background1">
+  <div class="fond-page1" id="pageContent">
+    <img src="images/Fond1.PNG" alt="Page1" class="background1">
 
-  <div class="tresor-button">
-    <a href="menu.html" id="tresorBtn" aria-label="Tresor">
-      <img src="images/Tresor1.png" alt="Tresor">
-    </a>
+    <div class="tresor-button">
+      <a href="menu.html" id="tresorBtn" aria-label="Trésor">
+        <img src="images/Tresor1.png" alt="Bouton Trésor">
+      </a>
+    </div>
   </div>
-</div>
   
-<!-- Loader -->
-<div id="loader">Chargement de la vidéo...</div>
+  <!-- Loader -->
+  <div id="loader">Chargement de la vidéo...</div>
 
-<!-- Vidéo -->
-<video id="Video1" src="video/Video1.mp4" playsinline muted></video>
+  <!-- Vidéo -->
+  <video id="Video1" src="video/Video1.mp4" playsinline muted></video>
   
-<!-- Script externe -->
-<script src="script.js"></script>
+  <!-- Script externe -->
+  <script src="script.js"></script>
 
 </body>
 </html>
