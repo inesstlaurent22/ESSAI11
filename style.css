@@ -180,11 +180,58 @@ body, html {
     max-width: 90px;
   }
 
-  .pirate1-button { top: 15%; left: 10%; }
-  .pirate2-button { top: 35%; left: 20%; }
-  .pirate3-button { top: 55%; left: 40%; }
-  .pirate4-button { top: 25%; right: 15%; }
-  .pirate5-button { bottom: 10%; left: 40%; }
+/* === Placement précis des pirates === */
+.pirate1-button {
+  position: absolute;
+  left: 161px;
+  top: 514px;
+  width: 138px;
+  height: 255px;
+}
+
+.pirate2-button {
+  position: absolute;
+  left: 888px;
+  top: 696px;
+  width: 186px;
+  height: 178px;
+}
+
+.pirate3-button {
+  position: absolute;
+  left: 736px;
+  top: 363px;
+  width: 133px;
+  height: 217px;
+}
+
+.pirate4-button {
+  position: absolute;
+  left: 938px;
+  top: 112px;
+  width: 163px;
+  height: 235px;
+}
+
+.pirate5-button {
+  position: absolute;
+  left: 2540px;
+  top: 200px;
+  width: 143px;
+  height: 187px;
+}
+
+/* Images à l'intérieur des boutons = prennent toute la taille */
+.pirate1-button img,
+.pirate2-button img,
+.pirate3-button img,
+.pirate4-button img,
+.pirate5-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 @media (max-width: 480px) {
