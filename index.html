@@ -19,7 +19,7 @@
       background: black;
     }
 
-    /* Loader */
+    /* Loader (masqué par défaut) */
     #loader {
       display: none;
       position: fixed;
@@ -31,7 +31,6 @@
       color: #ffd700;
       font-size: 2rem;
       font-family: Arial, sans-serif;
-      display: flex;
       justify-content: center;
       align-items: center;
       z-index: 10000;
@@ -57,7 +56,7 @@
   </div>
 </div>
   
-<!-- Loader -->
+<!-- Loader (seulement après clic) -->
 <div id="loader">Chargement de la vidéo...</div>
 
 <!-- ⚠️ Mets bien ta vidéo en MP4 -->
@@ -72,6 +71,7 @@
   tresorBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
+    // Si déjà joué une fois → aller direct à menu
     if (localStorage.getItem("videoPlayed")) {
       window.location.href = "menu.html";
       return;
@@ -80,23 +80,25 @@
     // cacher le contenu
     pageContent.style.display = "none";
 
-    // afficher loader
+    // afficher le loader
     loader.style.display = "flex";
 
-    // attendre que la vidéo soit prête
+    // afficher et lancer la vidéo
     video.style.display = "block";
     video.setAttribute("autoplay", "true");
 
     video.play().then(() => {
-      loader.style.display = "none"; // enlever le loader dès que ça démarre
+      loader.style.display = "none"; // enlever loader quand la vidéo démarre
     }).catch(err => {
       console.warn("Lecture bloquée, redirection directe:", err);
       window.location.href = "menu.html";
     });
 
+    // marquer comme déjà joué
     localStorage.setItem("videoPlayed", "true");
   });
 
+  // quand la vidéo se termine → redirection
   video.addEventListener("ended", () => {
     window.location.href = "menu.html";
   });
