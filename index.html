@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CLIQUE SUR LE TRESOR</title>
-  <link rel="stylesheet" href="style.css">
   <style>
     /* Vidéo en plein écran */
     #Video1 {
@@ -17,13 +16,6 @@
       object-fit: cover;
       z-index: 9999;
       background: black;
-      cursor: pointer; /* indique qu’on peut cliquer */
-    }
-
-    @keyframes blink {
-      0% { opacity: 1; }
-      50% { opacity: 0.5; }
-      100% { opacity: 1; }
     }
   </style>
 </head>
@@ -42,8 +34,37 @@
   <!-- Vidéo -->
   <video id="Video1" src="video/Video1.mp4" playsinline muted></video>
   
-  <!-- Script externe -->
-  <script src="script.js"></script>
+  <!-- Script intégré -->
+  <script>
+    const tresorBtn = document.getElementById("tresorBtn");
+    const video = document.getElementById("Video1");
+    const pageContent = document.getElementById("pageContent");
+
+    // Étape 1 : clic sur le bouton trésor → afficher et lancer la vidéo
+    tresorBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      if (localStorage.getItem("videoPlayed")) {
+        window.location.href = "menu.html";
+        return;
+      }
+
+      pageContent.style.display = "none";
+      video.style.display = "block";
+
+      video.play().catch(err => {
+        console.error("Erreur lors de la lecture :", err);
+        window.location.href = "menu.html";
+      });
+
+      localStorage.setItem("videoPlayed", "true");
+    });
+
+    // Étape 2 : quand la vidéo se termine → redirection
+    video.addEventListener("ended", () => {
+      window.location.href = "menu.html";
+    });
+  </script>
 
 </body>
 </html>
