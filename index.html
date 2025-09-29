@@ -20,25 +20,6 @@
       cursor: pointer; /* indique qu’on peut cliquer */
     }
 
-    /* Loader */
-    #loader {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: black;
-      color: #ffd700;
-      font-size: 2rem;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 10000;
-      animation: blink 1.2s infinite;
-    }
-
     @keyframes blink {
       0% { opacity: 1; }
       50% { opacity: 0.5; }
@@ -60,9 +41,6 @@
 
   <!-- Vidéo -->
   <video id="Video1" src="video/Video1.mp4" playsinline muted></video>
-
-  <!-- Loader -->
-  <div id="loader">Chargement de la vidéo...</div>
   
   <!-- Script externe -->
   <script src="script.js"></script>
