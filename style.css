@@ -30,27 +30,7 @@ body, html {
   display: block;
 }
 
-/* === PAGE 2 (Accueil avec Trésor) === */
-.Accueil {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-.backgroundA {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
-
+/* === Trésor Page 1 === */
 .tresor-button {
   position: absolute;
   left: 570px;
@@ -69,19 +49,15 @@ body, html {
   height: 295px;
   object-fit: contain;
   display: block;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* Effet lumineux orange/doré */
+/* Effet lumineux adouci */
 .tresor-button img:hover {
-  transform: scale(1.05);
-  filter: drop-shadow(0 0 10px #ff8c00)
-          drop-shadow(0 0 15px #ffa500)
-          drop-shadow(0 0 20px #ffd700)
-          drop-shadow(0 0 25px #ffea00)
-          drop-shadow(0 0 30px #fff176)
-          drop-shadow(0 0 35px #ffe066)
-          drop-shadow(0 0 40px #ffb347);
+  transform: scale(1.03);
+  filter: drop-shadow(0 0 6px #ffa500)
+          drop-shadow(0 0 12px #ffd700)
+          drop-shadow(0 0 18px #fff176);
 }
 
 /* === Styles vidéo === */
@@ -95,13 +71,7 @@ body, html {
   background-color: black;
   object-fit: contain;
   display: none;
-  pointer-events: none; /* empêche toute interaction */
-}
-
-#Video1:fullscreen {
-  width: 100vw;
-  height: 100vh;
-  object-fit: contain;
+  pointer-events: none;
 }
 
 /* === PAGE Pirates (fondindex + 5 boutons) === */
@@ -170,15 +140,13 @@ body, html {
 }
 
 .pirate5-button {
-  left: 2540px;
-  top: 200px;
+  right: 80px;
+  bottom: 100px;
   width: 143px;
   height: 187px;
 }
 
 /* === Effets hover personnalisés === */
-
-/* Pirate 1 : effet feu doré */
 .pirate1-button:hover img {
   transform: scale(1.1) rotate(-3deg);
   filter: drop-shadow(0 0 10px #ff4500)
@@ -186,7 +154,6 @@ body, html {
           drop-shadow(0 0 30px #ffd700);
 }
 
-/* Pirate 2 : effet eau bleutée */
 .pirate2-button:hover img {
   transform: scale(1.15);
   filter: drop-shadow(0 0 10px #00bfff)
@@ -194,7 +161,6 @@ body, html {
           drop-shadow(0 0 35px #00ffff);
 }
 
-/* Pirate 3 : effet poison/émeraude */
 .pirate3-button:hover img {
   transform: scale(1.1) rotate(5deg);
   filter: drop-shadow(0 0 10px #00ff7f)
@@ -202,7 +168,6 @@ body, html {
           drop-shadow(0 0 35px #7fff00);
 }
 
-/* Pirate 4 : effet mystique violet */
 .pirate4-button:hover img {
   transform: scale(1.1);
   filter: drop-shadow(0 0 10px #9400d3)
@@ -210,7 +175,6 @@ body, html {
           drop-shadow(0 0 35px #da70d6);
 }
 
-/* Pirate 5 : effet solaire avec pulsation */
 .pirate5-button:hover img {
   animation: pulse 0.8s infinite alternate;
   filter: drop-shadow(0 0 10px #ffd700)
@@ -218,7 +182,6 @@ body, html {
           drop-shadow(0 0 35px #fff176);
 }
 
-/* Animation pulse pour Pirate 5 */
 @keyframes pulse {
   from { transform: scale(1.15); }
   to { transform: scale(1.25); }
