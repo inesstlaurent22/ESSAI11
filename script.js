@@ -3,7 +3,7 @@ const video = document.getElementById("Video1");
 const pageContent = document.getElementById("pageContent");
 const loader = document.getElementById("loader");
 
-// Étape 1 : clic sur le bouton trésor → afficher la vidéo en pause
+// Étape 1 : clic sur le bouton trésor → afficher la vidéo (attente d'un clic utilisateur)
 tresorBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
@@ -13,29 +13,29 @@ tresorBtn.addEventListener("click", (e) => {
     return;
   }
 
-  // cacher le contenu
+  // cacher le contenu de la page
   pageContent.style.display = "none";
 
-  // afficher la vidéo (attente du clic utilisateur)
+  // afficher la vidéo en attente (écran noir)
   video.style.display = "block";
 });
 
-// Étape 2 : clic sur la vidéo → afficher loader puis lancer la lecture
+// Étape 2 : clic sur la vidéo → loader puis lecture
 video.addEventListener("click", () => {
   // afficher le loader
   loader.style.display = "flex";
 
-  // empêcher toute interaction ensuite
+  // empêcher tout autre clic
   video.style.pointerEvents = "none";
 
-  // petit délai pour que le loader s’affiche
+  // petit délai pour afficher le loader avant la lecture
   setTimeout(() => {
-    loader.style.display = "none";
+    loader.style.display = "none"; // enlever le loader
     video.play().catch(err => {
       console.error("Erreur de lecture vidéo:", err);
       window.location.href = "menu.html";
     });
-  }, 800);
+  }, 1000); // délai ajustable (1s ici)
   
   // marquer comme déjà joué
   localStorage.setItem("videoPlayed", "true");
