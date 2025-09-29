@@ -6,7 +6,7 @@
 }
 
 body, html {
-  overflow-x: hidden; /* Empêche le défilement horizontal */
+  overflow-x: hidden;
   font-family: Arial, sans-serif;
   line-height: 1.6;
   color: #333;
@@ -75,13 +75,13 @@ body, html {
 /* Effet lumineux orange/doré */
 .tresor-button img:hover {
   transform: scale(1.05);
-  filter: drop-shadow(0 0 10px #ff8c00)   /* orange vif */
-          drop-shadow(0 0 15px #ffa500)   /* orange plus clair */
-          drop-shadow(0 0 20px #ffd700)   /* doré */
-          drop-shadow(0 0 25px #ffea00)   /* jaune intense */
-          drop-shadow(0 0 30px #fff176)   /* jaune pâle lumineux */
-          drop-shadow(0 0 35px #ffe066)   /* doré clair */
-          drop-shadow(0 0 40px #ffb347);  /* orange pastel */
+  filter: drop-shadow(0 0 10px #ff8c00)
+          drop-shadow(0 0 15px #ffa500)
+          drop-shadow(0 0 20px #ffd700)
+          drop-shadow(0 0 25px #ffea00)
+          drop-shadow(0 0 30px #fff176)
+          drop-shadow(0 0 35px #ffe066)
+          drop-shadow(0 0 40px #ffb347);
 }
 
 /* === Styles vidéo === */
@@ -130,29 +130,101 @@ body, html {
 
 .buttons-container div {
   position: absolute;
-  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .buttons-container img {
-  max-width: 120px;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.buttons-container div:hover {
-  transform: scale(1.1);
-  filter: drop-shadow(0 0 15px #ffa500)
+/* === Placement précis des pirates === */
+.pirate1-button {
+  left: 161px;
+  top: 514px;
+  width: 138px;
+  height: 255px;
+}
+
+.pirate2-button {
+  left: 888px;
+  top: 696px;
+  width: 186px;
+  height: 178px;
+}
+
+.pirate3-button {
+  left: 736px;
+  top: 363px;
+  width: 133px;
+  height: 217px;
+}
+
+.pirate4-button {
+  left: 938px;
+  top: 112px;
+  width: 163px;
+  height: 235px;
+}
+
+.pirate5-button {
+  left: 2540px;
+  top: 200px;
+  width: 143px;
+  height: 187px;
+}
+
+/* === Effets hover personnalisés === */
+
+/* Pirate 1 : effet feu doré */
+.pirate1-button:hover img {
+  transform: scale(1.1) rotate(-3deg);
+  filter: drop-shadow(0 0 10px #ff4500)
+          drop-shadow(0 0 20px #ff8c00)
           drop-shadow(0 0 30px #ffd700);
 }
 
-/* Placement des pirates */
-.pirate1-button { top: 20%; left: 15%; }
-.pirate2-button { top: 40%; left: 30%; }
-.pirate3-button { top: 60%; left: 50%; }
-.pirate4-button { top: 30%; right: 20%; }
-.pirate5-button { bottom: 15%; left: 45%; }
+/* Pirate 2 : effet eau bleutée */
+.pirate2-button:hover img {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 10px #00bfff)
+          drop-shadow(0 0 20px #1e90ff)
+          drop-shadow(0 0 35px #00ffff);
+}
 
-/* === Responsive Design === */
+/* Pirate 3 : effet poison/émeraude */
+.pirate3-button:hover img {
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 0 10px #00ff7f)
+          drop-shadow(0 0 20px #32cd32)
+          drop-shadow(0 0 35px #7fff00);
+}
+
+/* Pirate 4 : effet mystique violet */
+.pirate4-button:hover img {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 10px #9400d3)
+          drop-shadow(0 0 20px #8a2be2)
+          drop-shadow(0 0 35px #da70d6);
+}
+
+/* Pirate 5 : effet solaire avec pulsation */
+.pirate5-button:hover img {
+  animation: pulse 0.8s infinite alternate;
+  filter: drop-shadow(0 0 10px #ffd700)
+          drop-shadow(0 0 20px #ffea00)
+          drop-shadow(0 0 35px #fff176);
+}
+
+/* Animation pulse pour Pirate 5 */
+@keyframes pulse {
+  from { transform: scale(1.15); }
+  to { transform: scale(1.25); }
+}
+
+/* === Responsive Design (Trésor uniquement pour l’instant) === */
 @media (max-width: 1200px) {
   .tresor-button {
     left: 50%;
@@ -175,72 +247,11 @@ body, html {
     width: 150px;
     height: 150px;
   }
-
-  .buttons-container img {
-    max-width: 90px;
-  }
-
-/* === Placement précis des pirates === */
-.pirate1-button {
-  position: absolute;
-  left: 161px;
-  top: 514px;
-  width: 138px;
-  height: 255px;
-}
-
-.pirate2-button {
-  position: absolute;
-  left: 888px;
-  top: 696px;
-  width: 186px;
-  height: 178px;
-}
-
-.pirate3-button {
-  position: absolute;
-  left: 736px;
-  top: 363px;
-  width: 133px;
-  height: 217px;
-}
-
-.pirate4-button {
-  position: absolute;
-  left: 938px;
-  top: 112px;
-  width: 163px;
-  height: 235px;
-}
-
-.pirate5-button {
-  position: absolute;
-  left: 2540px;
-  top: 200px;
-  width: 143px;
-  height: 187px;
-}
-
-/* Images à l'intérieur des boutons = prennent toute la taille */
-.pirate1-button img,
-.pirate2-button img,
-.pirate3-button img,
-.pirate4-button img,
-.pirate5-button img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  cursor: pointer;
-  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 @media (max-width: 480px) {
   .tresor-button img {
     width: 120px;
     height: 120px;
-  }
-
-  .buttons-container img {
-    max-width: 70px;
   }
 }
