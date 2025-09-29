@@ -17,9 +17,10 @@
       object-fit: cover;
       z-index: 9999;
       background: black;
+      cursor: pointer; /* pour indiquer qu’on doit cliquer */
     }
 
-    /* Loader (masqué par défaut) */
+    /* Loader */
     #loader {
       display: none;
       position: fixed;
@@ -59,10 +60,10 @@
 <!-- Loader -->
 <div id="loader">Chargement de la vidéo...</div>
 
-<!-- ⚠️ Mets bien ta vidéo en MP4 -->
+<!-- Vidéo -->
 <video id="Video1" src="video/Video1.mp4" playsinline muted></video>
   
-<!-- Lien vers le script externe -->
+<!-- Script externe -->
 <script src="script.js"></script>
 
 </body>
