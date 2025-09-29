@@ -16,7 +16,32 @@
       height: 100%;
       object-fit: cover;
       z-index: 9999;
-      pointer-events: none; /* empêche clic/pause */
+      background: black;
+    }
+
+    /* Loader */
+    #loader {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      color: #ffd700;
+      font-size: 2rem;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+      animation: blink 1.2s infinite;
+    }
+
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
     }
   </style>
 </head>
@@ -32,38 +57,46 @@
   </div>
 </div>
   
-<!-- ⚠️ Convertis bien ta vidéo en .mp4 -->
+<!-- Loader -->
+<div id="loader">Chargement de la vidéo...</div>
+
+<!-- ⚠️ Mets bien ta vidéo en MP4 -->
 <video id="Video1" src="video/Video1.mp4" playsinline muted></video>
   
 <script>
   const tresorBtn = document.getElementById("tresorBtn");
   const video = document.getElementById("Video1");
   const pageContent = document.getElementById("pageContent");
+  const loader = document.getElementById("loader");
 
   tresorBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
-    // Vérifie si la vidéo a déjà été jouée
     if (localStorage.getItem("videoPlayed")) {
       window.location.href = "menu.html";
       return;
     }
 
-    // cacher le contenu de la page
+    // cacher le contenu
     pageContent.style.display = "none";
 
-    // afficher et lancer la vidéo
+    // afficher loader
+    loader.style.display = "flex";
+
+    // attendre que la vidéo soit prête
     video.style.display = "block";
-    video.play().catch(err => {
-      console.log("Lecture auto bloquée, redirection directe:", err);
+    video.setAttribute("autoplay", "true");
+
+    video.play().then(() => {
+      loader.style.display = "none"; // enlever le loader dès que ça démarre
+    }).catch(err => {
+      console.warn("Lecture bloquée, redirection directe:", err);
       window.location.href = "menu.html";
     });
 
-    // marquer que la vidéo a été jouée une fois
     localStorage.setItem("videoPlayed", "true");
   });
 
-  // quand la vidéo se termine → redirection
   video.addEventListener("ended", () => {
     window.location.href = "menu.html";
   });
