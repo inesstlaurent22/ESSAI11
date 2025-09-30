@@ -34,7 +34,7 @@ html, body {
 /* === Trésor === */
 .tresor-button {
   position: absolute;
-  top: 70%;
+  top: 78%;
   left: 50%;
   transform: translate(-50%, -50%);
   cursor: pointer;
@@ -47,7 +47,7 @@ html, body {
 }
 
 .tresor-img {
-  width: 200px;
+  width: 250px;
   height: auto;
   object-fit: contain;
   display: block;
