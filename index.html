@@ -11,12 +11,41 @@
   <div class="fondindex">
     <img src="images/Fond1.PNG" alt="Image de fond" class="background">
 
+    <!-- Bouton trésor -->
     <div class="tresor-button">
-      <a href="menu.html" aria-label="Découvrir l'histoire">
-        <img src="images/Tresor1.png" alt="Bouton Trésor" class="tresor-img">
-      </a>
+      <img src="images/Tresor1.png" alt="Bouton Trésor" class="tresor-img" id="treasureBtn">
     </div>
   </div>
 
+  <!-- Conteneur vidéo masqué -->
+  <div id="videoContainer">
+    <video id="treasureVideo" src="video/Video1.MOV"></video>
+    <button id="closeVideo">✖</button>
+  </div>
+
+  <script>
+    const treasureBtn = document.getElementById('treasureBtn');
+    const videoContainer = document.getElementById('videoContainer');
+    const treasureVideo = document.getElementById('treasureVideo');
+    const closeVideo = document.getElementById('closeVideo');
+
+    // Clique sur le bouton trésor
+    treasureBtn.addEventListener('click', () => {
+      videoContainer.style.display = 'flex';
+      treasureVideo.currentTime = 0;
+      treasureVideo.play();
+    });
+
+    // Fermer la vidéo
+    closeVideo.addEventListener('click', () => {
+      treasureVideo.pause();
+      videoContainer.style.display = 'none';
+    });
+
+    // Si tu veux rediriger après la fin de la vidéo :
+    treasureVideo.addEventListener('ended', () => {
+      window.location.href = "menu.html";
+    });
+  </script>
 </body>
 </html>
