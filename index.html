@@ -36,12 +36,6 @@
       treasureVideo.play();
     });
 
-    // Fermer la vidéo
-    closeVideo.addEventListener('click', () => {
-      treasureVideo.pause();
-      videoContainer.style.display = 'none';
-    });
-
     // Si tu veux rediriger après la fin de la vidéo :
     treasureVideo.addEventListener('ended', () => {
       window.location.href = "menu.html";
