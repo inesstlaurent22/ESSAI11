@@ -34,7 +34,7 @@ html, body {
 /* === Trésor === */
 .tresor-button {
   position: absolute;
-  top: 50%;
+  top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
   cursor: pointer;
@@ -47,7 +47,7 @@ html, body {
 }
 
 .tresor-img {
-  width: 300px;
+  width: 200px;
   height: auto;
   object-fit: contain;
   display: block;
@@ -62,29 +62,7 @@ html, body {
           drop-shadow(0 0 18px #fff176);
 }
 
-/* === Loader (si utilisé) === */
-#loader {
-  background: black;
-  color: #ffd700;
-  font-size: 2rem;
-  font-weight: bold;
-  text-align: center;
-  text-shadow: 0 0 10px #ffa500, 0 0 20px #ffd700, 0 0 30px #fff176;
-}
 
-/* === Styles vidéo === */
-#Video1 {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 200;
-  background: black;
-  object-fit: contain;
-  display: none;
-  pointer-events: none;
-}
 
 /* === PAGE Pirates === */
 .scene {
