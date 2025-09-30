@@ -44,26 +44,26 @@
     </div>
 
  <!-- Conteneur vidéo masqué -->
-  <div id="videoContainer">
+  <div id="videoContainer1">
     <video id="FinVideo" src="video/Finvideo.mp4"></video>
   </div>
 
   <script>
-    const FinVideo = document.getElementById('treasureBtn');
-    const videoContainer = document.getElementById('videoContainer');
-    const FinVideo = document.getElementById('treasureVideo');
-    const closeVideo = document.getElementById('closeVideo');
+    const FinVideo = document.getElementById('FinVideo');
+    const videoContainer1 = document.getElementById('videoContainer1');
+    const FinVideo = document.getElementById('FinVideo');
+    const closeVideo1 = document.getElementById('closeVideo1');
 
     // Clique sur le bouton trésor
     FinVideo.addEventListener('click', () => {
       videoContainer.style.display = 'flex';
       FinVideo.currentTime = 0;
-      treasureVideo.play();
+      FinVideo.play();
     });
 
     // Si tu veux rediriger après la fin de la vidéo :
-    treasureVideo.addEventListener('ended', () => {
-      window.location.href = "menu.html";
+    FinVideo.addEventListener('ended', () => {
+      window.location.href = "marketing.html";
     });
   </script>
     
