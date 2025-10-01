@@ -160,7 +160,9 @@ html, body {
 @media (max-width: 480px) {
   .tresor-img { width: 120px; }
 }
-/* Conteneur vidéo */
+
+
+/* Conteneur vidéo 1 */
 #videoContainer1 {
   display: none; /* caché par défaut */
   justify-content: center;
