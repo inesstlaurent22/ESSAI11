@@ -34,7 +34,7 @@
     </div>
 
     <!-- Conteneur vidéo masqué -->
-    <div id="videoContainer" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center;">
+    <div id="videoContainer1" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center;">
       <div style="position: relative; max-width: 80%; max-height: 80%;">
         <video id="mainVideo" controls style="width: 100%; height: auto;">
           Votre navigateur ne supporte pas la lecture de vidéos.
@@ -46,7 +46,7 @@
 
   <script>
     // Récupération des éléments
-    const videoContainer = document.getElementById('videoContainer');
+    const videoContainer1 = document.getElementById('videoContainer1');
     const mainVideo = document.getElementById('mainVideo');
     const closeVideo = document.getElementById('closeVideo');
     const pirateButtons = document.querySelectorAll('[data-page]');
@@ -65,7 +65,7 @@
         // Configuration et affichage de la vidéo
         mainVideo.src = videoSrc;
         mainVideo.currentTime = 0;
-        videoContainer.style.display = 'flex';
+        videoContainer1.style.display = 'flex';
         mainVideo.play();
       });
     });
@@ -73,7 +73,7 @@
     // Fermeture de la vidéo avec le bouton X
     closeVideo.addEventListener('click', () => {
       mainVideo.pause();
-      videoContainer.style.display = 'none';
+      videoContainer1.style.display = 'none';
       mainVideo.src = '';
     });
 
