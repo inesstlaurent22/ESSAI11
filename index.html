@@ -8,28 +8,12 @@
 </head>
 <body>
 
-  <div class="scene">
-    <img src="images/fondindex.PNG" alt="Image de fond de la page" class="background">
+  <div class="Fondindex">
+    <img src="images/Fond1" alt="Image de fond de la page1" class="fondindex">
     
     <div class="buttons-container">
-      <div class="pirate1-button">
-        <img src="images/Pirate1.png" alt="Bouton Pirate1" data-page="marketing.html" data-video="video/marketing.mp4">
-      </div>
-
-      <div class="pirate2-button">
-        <img src="images/Pirate2.png" alt="Bouton Pirate2" data-page="commerce.html" data-video="video/commerce.mp4">
-      </div>
-
-      <div class="pirate3-button">
-        <img src="images/Pirate3.png" alt="Bouton Pirate3" data-page="communication.html" data-video="video/communication.mp4">
-      </div>
-
-      <div class="pirate4-button">
-        <img src="images/Pirate4.png" alt="Bouton Pirate4" data-page="legal.html" data-video="video/legal.mp4">
-      </div>
-
-      <div class="pirate5-button">
-        <img src="images/Pirate5.png" alt="Bouton Pirate5" data-page="finance.html" data-video="video/finance.mp4">
+      <div class="tresor-button">
+        <img src="images/Tresor1" alt="Bouton Trésor" style="cursor: pointer;">
       </div>
     </div>
 
@@ -49,25 +33,15 @@
     const videoContainer = document.getElementById('videoContainer');
     const mainVideo = document.getElementById('mainVideo');
     const closeVideo = document.getElementById('closeVideo');
-    const pirateButtons = document.querySelectorAll('[data-page]');
+    const tresorButton = document.querySelector('.tresor-button img');
 
-    let currentPage = '';
-
-    // Ajout des événements de clic sur tous les boutons pirates
-    pirateButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const videoSrc = button.getAttribute('data-video');
-        const pageDest = button.getAttribute('data-page');
-        
-        // Stockage de la page de destination
-        currentPage = pageDest;
-        
-        // Configuration et affichage de la vidéo
-        mainVideo.src = videoSrc;
-        mainVideo.currentTime = 0;
-        videoContainer.style.display = 'flex';
-        mainVideo.play();
-      });
+    // Événement de clic sur le bouton trésor
+    tresorButton.addEventListener('click', () => {
+      // Configuration et affichage de la vidéo
+      mainVideo.src = 'video/Video1.MOV';
+      mainVideo.currentTime = 0;
+      videoContainer.style.display = 'flex';
+      mainVideo.play();
     });
 
     // Fermeture de la vidéo avec le bouton X - redirection vers menu.html
@@ -88,11 +62,9 @@
       }
     });
 
-    // Redirection après la fin de la vidéo
+    // Redirection après la fin de la vidéo vers menu.html
     mainVideo.addEventListener('ended', () => {
-      if (currentPage) {
-        window.location.href = currentPage;
-      }
+      window.location.href = 'menu.html';
     });
 
     // Gestion de l'échappement avec la touche Escape - redirection vers menu.html
