@@ -19,7 +19,7 @@ html, body {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  background-color: #000; /* Fond noir */
+  background-color: #000; /* fond noir derrière l'image */
 }
 
 .background {
@@ -35,16 +35,11 @@ html, body {
 /* === Trésor === */
 .tresor-button {
   position: absolute;
-  top: 70%;
-  left: 50%;
+  top: 50%;   /* Centré verticalement */
+  left: 50%;  /* Centré horizontalement */
   transform: translate(-50%, -50%);
   cursor: pointer;
   z-index: 10;
-}
-
-.tresor-button a {
-  display: block;
-  text-decoration: none;
 }
 
 .tresor-img {
@@ -78,7 +73,7 @@ html, body {
 }
 
 /* Vidéo plein écran */
-#treasureVideo {
+#mainVideo {
   max-width: 90%;
   max-height: 90%;
   border: 3px solid #fff;
